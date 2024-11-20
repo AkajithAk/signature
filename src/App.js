@@ -39,7 +39,7 @@ function App() {
     try {
       const docRef = doc(valRef, id);
       await updateDoc(docRef, { sign: url });
-      alert("Signature Added Successfully");
+      alert(url?"Signature Added Successfully..":"Deleted Successfully..");
     } catch (error) {
       console.error("Error updating document: ", error);
     }
@@ -125,7 +125,7 @@ function App() {
                     : (val.sign ?
                       <div>
                         <img src={val.sign} />
-                        {val.name == name ? <button onClick={() => handleGenerate(val.id, 'delete')}>delete</button> : ''}
+                        {val.name == name ? <button className='delete' onClick={() => handleGenerate(val.id, 'delete')}>delete</button> : ''}
                       </div>
                       : <h4>{val.name}  has not signed yet.</h4>)
                 }
@@ -141,16 +141,19 @@ function App() {
             <br/>
             {
 
-              allSigned ? <button onClick={generatePDF}>Print</button> : ''
+              allSigned ? <button className='print' onClick={generatePDF}>Print</button> : ''
             }
 
             <br /><br />
             <img src={url} />
           </div> :
-          <div>
+          <div className='form'>
             <form onSubmit={(e) => setName(e.target.name.value)}>
-              <input name='name' placeholder='Name' /><br />
-              <button>Add</button>
+              <h2>Signature</h2>
+              <br/>
+              <br/>
+              <input name='name' placeholder='Enter Your Name' /><br />
+              <button>submit</button>
             </form>
           </div>
       }

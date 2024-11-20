@@ -33,6 +33,38 @@
   justify-content: center;
 }
 
+.form{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.form input{
+  height: 2rem;
+  width: 15rem;
+  text-align: center;
+}
+.form button{
+  height: 2rem;
+  width: 5rem;
+  margin-top:2rem ;
+}
+.delete{
+  height: 2rem;
+  width: 4rem;
+  background: red;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+.print{
+  height: 2.5rem;
+  width: 5rem;
+  background: grey;
+  color: white;
+  border: none;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
